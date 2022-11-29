@@ -19,21 +19,19 @@ void fwrite()
 
 void fread()
 {
-    std::ifstream ifs;
-    ifs.open("MyText.txt");
-    if(!ifs.is_open())
+    std::ifstream ifs("MyTextss.txt");
+    if(!ifs)
     {
-        std::cout<<"File cannot be opened"<<std::endl;
+        std::cout<<"The file does not exist!"<<std::endl;
+        return;
     }
     
     std::string str;
-    while(!ifs.eof())
-    {
-        ifs>>str;
-        std::cout<<str<<std::endl;
-    }
+    int x;
+    ifs>>str>>x;
+    ifs.close();
     
-    std::cout<<"end of file"<<std::endl;
+    std::cout<<"String:"<<str<<" Number:"<<x<<std::endl;
 }
 
 int main(int argc, const char * argv[]) {
